@@ -17,7 +17,7 @@ spring:
         - id: user login, join
           uri: http://localhost:8080/
           predicates:
-            - Path=/user/login,/user/join
+            - Path=/user/login,/user/join,/user/check
         - id: user wallet
           uri: http://localhost:8080/
           predicates: # 조건절
