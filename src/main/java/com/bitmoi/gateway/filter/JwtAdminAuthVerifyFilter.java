@@ -1,13 +1,10 @@
 package com.bitmoi.gateway.filter;
 
-import java.util.Objects;
-
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
-import reactor.core.publisher.Mono;
 
 // 사용자 정의 필터를 만들기 위해 Spring Cloud Gateway가 추상화해 놓은 AbstractGatewayFilterFactory를 상속받는다.
 
@@ -39,7 +36,7 @@ public class JwtAdminAuthVerifyFilter extends AbstractGatewayFilterFactory<JwtAd
             // }
 
             // Request Header에서 token 추출
-            String token = request.getHeaders().get("token").get(0);
+            String token = request.getHeaders().get(HttpHeaders.AUTHORIZATION).get(0);
             System.out.println("tokentokentokentokentokentokentoken" + token);
             return chain.filter(exchange);
             // 토큰 검증 및 ADMIN 권한 확인
@@ -57,10 +54,10 @@ public class JwtAdminAuthVerifyFilter extends AbstractGatewayFilterFactory<JwtAd
 
     }
 
-    private void addAuthorizationHeaders(ServerHttpRequest request, TokenUser tokenUser) {
-        request.mutate()
-                .header("X-Authorization-Id", tokenUser.getId())
-                // .header("X-Authorization-Role", tokenUser.getRole())
-                .build();
-    }
+//    private void addAuthorizationHeaders(ServerHttpRequest request, TokenUser tokenUser) {
+//        request.mutate()
+//                .header("X-Authorization-Id", tokenUser.getId())
+//                // .header("X-Authorization-Role", tokenUser.getRole())
+//                .build();
+//    }
 }
