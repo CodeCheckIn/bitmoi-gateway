@@ -38,6 +38,8 @@ jobs:
       uses: microsoft/variable-substitution@v1
       with:
         files: ${{ env.RESOURCE_PATH }}
+      env:
+        jwt.secret: ${{ secrets.JWT_SECRET }}
 
     # [2]
     - name: Build with Gradle
