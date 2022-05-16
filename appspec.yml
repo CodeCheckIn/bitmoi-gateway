@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source:  /
-    destination: /home/dev/github_action/gateway
+    destination: /home/dev/github_action
     overwrite: yes
 
 permissions:
