@@ -44,6 +44,8 @@ spring:
             - JwtAdminAuthVerifyFilter
         - id: user wallet
           uri: lb://ORDER-SERICE
+          predicates: # 조건절
+            - Path=/
           filters:
             - JwtAdminAuthVerifyFilter
 
