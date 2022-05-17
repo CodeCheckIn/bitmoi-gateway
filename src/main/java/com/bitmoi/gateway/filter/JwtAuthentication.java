@@ -45,7 +45,12 @@ public class JwtAuthentication
             // }
 
             // Request Header에서 token 추출
-            String token = request.getHeaders().getFirst(HttpHeaders.AUTHORIZATION);
+            try {
+                String token = request.getHeaders().getFirst(HttpHeaders.AUTHORIZATION);
+            } catch (Exception e) {
+                e.getMessage();
+            }
+
             return chain.filter(exchange);
             // 토큰 검증 및 ADMIN 권한 확인
             // if (jwtProvider.validateToken(token) &&
