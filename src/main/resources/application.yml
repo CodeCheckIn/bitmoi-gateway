@@ -13,6 +13,24 @@ spring:
     name: apigateway-service
   cloud:
     gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: 'http://bitmoi.com.s3-website.ap-northeast-2.amazonaws.com/'
+            allow-credentials: true #추가
+            allowedHeaders:
+              - x-requested-with
+              - authorization
+              - content-type
+              - credential
+              - X-AUTH-TOKEN
+              - X-CSRF-TOKEN
+            allowedMethods:
+              - POST
+              - GET
+              - PUT
+              - OPTIONS
+              - DELETE
       routes:
         - id: user login, join
           uri: lb://USER-SERVICE
