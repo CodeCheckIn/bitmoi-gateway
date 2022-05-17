@@ -15,18 +15,18 @@ public class jwtUtil {
     @Value("${jwt.secret}")
     private String secret;
 
-    public Jwt validateToken(String token) {
+    public Jwt validateToken(String token) throws Exception {
         SecretKey key = Keys.hmacShaKeyFor(Decoders.BASE64.decode(secret));
-        return Jwts.parserBuilder().setSigningKey(key).build().parse(token);
-        // try {
-        // Jwts.parserBuilder().setSigningKey(key).build().parse(token);
-        // return true;
-        // } catch (ExpiredJwtException e) {
-        // throw new UnauthorizedException(ExceptionMessage.ExpiredToken.getMessage());
-        // } catch (MalformedJwtException e) {
-        // throw new
-        // UnauthorizedException(ExceptionMessage.MalformedToken.getMessage());
-        // } catch (SignatureException e) {
+        // return Jwts.parserBuilder().setSigningKey(key).build().parse(token);
+        try {
+            Jwts.parserBuilder().setSigningKey(key).build().parse(token);
+            return Jwts.parserBuilder().setSigningKey(key).build().parse(token);
+        } catch (ExpiredJwtException e) {
+            throw new Exception(e.getMessage());
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+        // catch (SignatureException e) {
         // throw new
         // UnauthorizedException(ExceptionMessage.SignatureVerifyToken.getMessage());
         // } catch (IllegalArgumentException e) {
