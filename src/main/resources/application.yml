@@ -42,10 +42,10 @@ spring:
             - Path=/user/wallet
           filters:
             - JwtAdminAuthVerifyFilter
-        - id: user wallet
+        - id: user order
           uri: lb://ORDER-SERICE
           predicates: # 조건절
-            - Path=/
+            - Path=/orderbook,/orders,/order/cancel/
           filters:
             - JwtAdminAuthVerifyFilter
 
