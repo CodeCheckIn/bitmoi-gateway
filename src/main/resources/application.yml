@@ -24,12 +24,16 @@ spring:
             - Path=/user/wallet
           filters:
             - JwtAdminAuthVerifyFilter
-        - id: user order
+        - id: order
           uri: lb://ORDER-SERICE
           predicates: # 조건절
             - Path=/orderbook,/orders,/order/cancel/
           filters:
             - JwtAdminAuthVerifyFilter
+        - id: quotation
+          uri: lb://QUOTATION-APP
+          predicates: # 조건절
+            - Path=/quotations/refresh
 
 jwt:
   secret: Y29kZXN0YXRlcy1iaXRodW1iLW1zYS10ZWFtLW1lbWJlci1zcHJpbmctYm9vdC13ZWJmbHV4LWp3dC1zZWNyZXQ=
