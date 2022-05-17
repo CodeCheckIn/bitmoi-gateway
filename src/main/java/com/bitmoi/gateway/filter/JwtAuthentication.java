@@ -41,7 +41,7 @@ public class JwtAuthentication
             // Request Header에 token이 존재하지 않을 경우
             // if (!request.getHeaders().containsKey(HttpHeaders.AUTHORIZATION)) {
             // throw new
-            // UnauthorizedException(ExceptionMessage.AuthVerifyAccessDenied.getMessage());
+            // UnauthorizedExceptio(ExceptionMessage.AuthVerifyAccessDenied.getMessage());
             // }
 
             // Request Header에서 token 추출
