@@ -27,7 +27,7 @@ spring:
         - id: order
           uri: lb://ORDER-SERICE
           predicates: # 조건절
-            - Path=/orderbook,/orders,/order/cancel/
+            - Path=/orderbook,/orders,/order/cancel/*
           filters:
             - JwtAdminAuthVerifyFilter
         - id: quotation
