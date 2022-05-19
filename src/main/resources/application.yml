@@ -43,8 +43,8 @@ spring:
           uri: lb://QUOTATION-APP
           predicates: # 조건절
             - Path=/quotations/refresh
-        - id: excution
-          uri: lb://EXCUTION-SERVICE
+        - id: EXECUTION
+          uri: lb://EXECUTION-SERVICE
           predicates: # 조건절
             - Path=/executions/*
         - id: bithum
