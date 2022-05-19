@@ -16,12 +16,12 @@ spring:
       globalcors:
         corsConfigurations:
           '[/**]':
-            allowedOrigins: "*"
-            allowedHeaders: "*"
+            allowedOrigins: '*'
+            allowedHeaders: '*'
             allowedMethods:
-            - GET
-            - POST
-            - PUT
+              - GET
+              - POST
+              - PUT
       routes:
         - id: user login, join
           uri: lb://USER-SERVICE
@@ -36,7 +36,7 @@ spring:
         - id: order
           uri: lb://ORDER-SERICE
           predicates: # 조건절
-            - Path=/orderbook,/orders,/order/cancel/*
+            - Path=/orderbook,/orderbook/user,/orders,/order/cancel/*
           filters:
             - JwtAdminAuthVerifyFilter
         - id: quotation
