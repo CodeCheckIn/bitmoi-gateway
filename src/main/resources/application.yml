@@ -17,7 +17,7 @@ spring:
         - id: user login, join
           uri: lb://USER-SERVICE
           predicates:
-            - Path=/user/login,/user/join,/user/check
+            - Path=/user/login,/user/join,/user/check,/user/ranking,/user/asset/*
         - id: user wallet
           uri: lb://USER-SERVICE
           predicates: # 조건절
