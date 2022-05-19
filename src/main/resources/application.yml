@@ -13,6 +13,15 @@ spring:
     name: apigateway-service
   cloud:
     gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedHeaders: "*"
+            allowedMethods:
+            - GET
+            - POST
+            - PUT
       routes:
         - id: user login, join
           uri: lb://USER-SERVICE
