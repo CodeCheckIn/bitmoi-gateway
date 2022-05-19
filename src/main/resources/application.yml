@@ -43,6 +43,10 @@ spring:
           uri: lb://QUOTATION-APP
           predicates: # 조건절
             - Path=/quotations/refresh
+        - id: bithum
+          uri: https://api.bithumb.com/public/ticker/{order_currency}_{payment_currency}
+          predicates: # 조건절
+            - Path=/bithum/{order_currency}/{payment_currency}
 
 jwt:
   secret: Y29kZXN0YXRlcy1iaXRodW1iLW1zYS10ZWFtLW1lbWJlci1zcHJpbmctYm9vdC13ZWJmbHV4LWp3dC1zZWNyZXQ
